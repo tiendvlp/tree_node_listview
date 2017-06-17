@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         tiendvlp_expan_tree_listview tiendvlp_expan_tree_listview = new tiendvlp_expan_tree_listview(this, MainActivity.this);
         abc12.addView(tiendvlp_expan_tree_listview);
         tiendvlp_expan_tree_listview.add_tree_node(new tree_node("/Thời trang", "Thời trang"));
+        tiendvlp_expan_tree_listview.add_tree_node(new tree_node("/Điện tử", "Điện tử"));
         tiendvlp_expan_tree_listview.add_tree_node(new tree_node("/Thời trang/Nam", "Nam"));
         tiendvlp_expan_tree_listview.add_tree_node(new tree_node("/Thời trang/Nam/Quần", "Quần"));
         tiendvlp_expan_tree_listview.add_tree_node(new tree_node("/Thời trang/Nam/Quần/Quần Kaki", "Quần Kaki"));
