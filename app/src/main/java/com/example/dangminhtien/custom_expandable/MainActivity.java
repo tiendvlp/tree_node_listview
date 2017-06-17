@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
         tiendvlp_expan_tree_listview.add_tree_node(new tree_node("/Thời trang/Nam/Quần", "Quần"));
         tiendvlp_expan_tree_listview.add_tree_node(new tree_node("/Thời trang/Nam/Quần/Quần Kaki", "Quần Kaki"));
         tiendvlp_expan_tree_listview.init();
+        tiendvlp_expan_tree_listview.set_on_tree_node_click_listener(new tiendvlp_expan_tree_listview.on_tree_node_click() {
+            @Override
+            public void on_click(String txt_title, boolean is_hide) {
+                Toast.makeText(getApplicationContext(), txt_title + is_hide, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

@@ -29,8 +29,9 @@ public class tiendvlp_expan_tree_listview extends ScrollView implements View.OnT
     private HashMap<String,LinearLayout> containers = new HashMap<String, LinearLayout>();
     private LinearLayout parent;
     private boolean has_container;
-    private boolean is_hide = true;
+    private boolean is_hide = false;
     private Activity activity;
+    private on_tree_node_click on_tree_node_click;
     private static View view_selected_before = null;
 
     public tiendvlp_expan_tree_listview(Context context, Activity activity) {
@@ -127,18 +128,18 @@ public class tiendvlp_expan_tree_listview extends ScrollView implements View.OnT
         if (null != view_selected_before) {
             ((TextView)view_selected_before.findViewById(R.id.txt_title_row)).setTextColor(Color.parseColor("#444444"));
         }
-        v.setBackgroundColor(Color.RED);
-        v.setBackgroundColor(Color.TRANSPARENT);
-
+        TextView txt_title = (TextView) v.findViewById(R.id.txt_title_row);
         view_selected_before = v;
-        if (is_hide) {
+        if (!is_hide) {
             hide_view(((LinearLayout)v.getParent()));
-            is_hide = false;
+            is_hide = true;
         } else {
             show_view(((LinearLayout)v.getParent()));
             ((TextView)v.findViewById(R.id.txt_title_row)).setTextColor(Color.parseColor("#F38F20"));
-            is_hide = true;
+            is_hide = false;
        }
+       // chạy sự kiện khi click vào
+        on_tree_node_click.on_click(txt_title.getText().toString(), is_hide);
        // nếu không return false sẽ bị vòng lặp
         return false;
     }
@@ -222,5 +223,12 @@ public class tiendvlp_expan_tree_listview extends ScrollView implements View.OnT
             if (null != container.getChildAt(1)) {
                 countDownTimer.start();
             }
+    }
+    public void set_on_tree_node_click_listener (on_tree_node_click on_tree_node_click) {
+        this.on_tree_node_click = on_tree_node_click;
+    }
+
+    public interface on_tree_node_click {
+        public void on_click(String txt_title, boolean is_hide);
     }
 }
