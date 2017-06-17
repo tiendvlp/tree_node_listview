@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/abc"
+    android:weightSum="2">
+
+    <TextView
+        android:id="@+id/txt_title_row"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1.8"
+        android:clickable="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Title"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_expand_collapse_row"
+        android:layout_width="wrap_content"
+        android:clickable="false"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:layout_weight="0.2"
+        app:srcCompat="@drawable/expand_icon" />
+</LinearLayout>
